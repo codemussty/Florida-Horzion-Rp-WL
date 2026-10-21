@@ -1,0 +1,29 @@
+
+name: Florida Horizon Welcome Bot
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "*/5 * * * *"
+
+permissions:
+  contents: read
+
+jobs:
+  welcome-bot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+
+    steps:
+      - name: Download bot code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Run welcome bot test
+        env:
+          ERLC_SERVER_KEY: ${{ secrets.ERLC_SERVER_KEY }}
+        run: node index.js
