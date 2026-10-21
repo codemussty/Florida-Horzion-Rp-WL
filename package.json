@@ -1,0 +1,11 @@
+
+{
+  "name": "florida-horizon-welcome-bot",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ERLC automatic welcome message bot",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  }
+}
